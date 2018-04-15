@@ -90,7 +90,6 @@ public class KnapsackProblem extends Application{
 			}
 			chartData.put(categoryName, avgData);
 		}
-//		Line line = new Line("Convergence Chart",800, 600, "10 items, 4 population", "Iteration", "Objective Value", chartData);
 		winTitle = "Convergence Chart";
 		width = 800;
 		height = 600;
@@ -99,11 +98,6 @@ public class KnapsackProblem extends Application{
 		axisYName = "Objective Value";
 		data = chartData;
 		launch();
-
-//		System.out.println(sb.toString());
-//		System.out.println();
-//		System.out.println("best:");
-//		System.out.println(os.getSolution());
 	}
 
 	@Override

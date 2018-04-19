@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import edu.nchu.cs.ai.algorithms.Genetic;
 import edu.nchu.cs.ai.algorithms.SelectionType;
@@ -40,11 +41,11 @@ public class KnapsackProblem extends Application{
 
 	public static void main(String[] args) {
 		List<Item> items = new ArrayList<Item>();
-		items.add(new Item("A", 4, 4500));
-		items.add(new Item("B", 5, 5700));
-		items.add(new Item("C", 2, 2250));
-		items.add(new Item("D", 1, 1100));
-		items.add(new Item("E", 6, 6700));
+//		items.add(new Item("A", 4, 4500));
+//		items.add(new Item("B", 5, 5700));
+//		items.add(new Item("C", 2, 2250));
+//		items.add(new Item("D", 1, 1100));
+//		items.add(new Item("E", 6, 6700));
 //		items.add(new Item("F", 3, 400));
 //		items.add(new Item("G", 4, 350));
 //		items.add(new Item("H", 5, 800));
@@ -54,9 +55,21 @@ public class KnapsackProblem extends Application{
 		List<List<Solution>> totalDetail = new ArrayList<>();
 		int runTimes = 30;
 		int iteration = 500;
-		int limit = 8;
 		int population = 4;
+		int itemCount = 10;
 		int cnt = 0;
+
+		Random rnd = new Random();
+		int weight = 0;
+		int value = 0;
+		int totalWeight = 0;
+		for (int i=0;i<itemCount;i++) {
+			weight = rnd.nextInt(10);
+			value = rnd.nextInt(10) * 100;
+			items.add(new Item("item"+(i+1), weight, value));
+			totalWeight += weight;
+		}
+		int limit = (int) Math.round(totalWeight * 0.5);
 
 		SelectionType[] types = {SelectionType.ROULETTEWHEEL,SelectionType.TOURNAMENT};
 		Map<String, List<Integer>> chartData = new HashMap<>();
@@ -93,7 +106,7 @@ public class KnapsackProblem extends Application{
 		winTitle = "Convergence Chart";
 		width = 800;
 		height = 600;
-		chartTitle = "10 items, 4 population";
+		chartTitle = itemCount+" items, " + population + " population";
 		axisXName = "Iteration";
 		axisYName = "Objective Value";
 		data = chartData;

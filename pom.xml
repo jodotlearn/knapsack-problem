@@ -22,4 +22,22 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+	<build>
+		<finalName>knapsack</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<mainClass>edu.nchu.cs.ai.KnapsackProblem</mainClass>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 </project>

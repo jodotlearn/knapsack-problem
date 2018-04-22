@@ -39,24 +39,23 @@ public class KnapsackProblem extends Application{
 	private static double height;
 	private static Map<String,List<Integer>> data;
 
+	/**
+	 * java -jar knapsack.jar item_count population_size iterations run_times
+	 * sample:
+	 * 	10 items
+	 * 	4 population
+	 * 	2000 iterations
+	 * 	execute 30 times
+	 * java -jar knapsack.jar 10 4 2000 30
+	 */
 	public static void main(String[] args) {
 		List<Item> items = new ArrayList<Item>();
-//		items.add(new Item("A", 4, 4500));
-//		items.add(new Item("B", 5, 5700));
-//		items.add(new Item("C", 2, 2250));
-//		items.add(new Item("D", 1, 1100));
-//		items.add(new Item("E", 6, 6700));
-//		items.add(new Item("F", 3, 400));
-//		items.add(new Item("G", 4, 350));
-//		items.add(new Item("H", 5, 800));
-//		items.add(new Item("I", 6, 100));
-//		items.add(new Item("J", 1, 600));
 
 		List<List<Solution>> totalDetail = new ArrayList<>();
-		int runTimes = 30;
-		int iteration = 500;
-		int population = 4;
-		int itemCount = 10;
+		int itemCount = Integer.valueOf(args[0]);
+		int population = Integer.valueOf(args[1]);
+		int iteration = Integer.valueOf(args[2]);
+		int runTimes = Integer.valueOf(args[3]);
 		int cnt = 0;
 
 		Random rnd = new Random();
